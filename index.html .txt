@@ -1,0 +1,1019 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090910">
+<meta name="description" content="BRAZENLI L. BENOSA Portfolio">
+<title>BRAZENLI L. BENOSA | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #090910;
+  --panel: #151526;
+  --text: #ffffff;
+  --muted: #a5a5bd;
+  --blue: #718cff;
+  --purple: #a66cff;
+  --cyan: #5ce1e6;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: 90%;
+  max-width: 1150px;
+  margin: auto;
+}
+
+/* BACKGROUND */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 80% 15%, #39216a55, transparent 35%),
+    radial-gradient(circle at 10% 65%, #123d6850, transparent 35%),
+    #090910;
+}
+
+.noise {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+  opacity: .035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* HEADER */
+
+header {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ffffff18;
+}
+
+.brand {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-size: 17px;
+}
+
+.brand span {
+  font-size: 10px;
+  color: #aaa;
+  margin-left: 7px;
+}
+
+.brand b {
+  color: var(--cyan);
+}
+
+nav {
+  display: flex;
+  gap: 35px;
+}
+
+nav a {
+  color: #bbb;
+  font-size: 13px;
+  transition: .3s;
+}
+
+nav a:hover {
+  color: var(--cyan);
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: 1px solid #ffffff30;
+  color: white;
+  font-size: 22px;
+  padding: 5px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 650px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  position: relative;
+  gap: 30px;
+}
+
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: #aaa;
+  margin-bottom: 25px;
+}
+
+.eyebrow span {
+  color: var(--cyan);
+}
+
+h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(40px, 5vw, 65px);
+  line-height: 1.1;
+  letter-spacing: -3px;
+  margin-bottom: 25px;
+}
+
+.gradient {
+  background: linear-gradient(100deg, #729cff, #b16bff, #5ce1e6);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.outline {
+  color: transparent;
+  -webkit-text-stroke: 1px #aaa;
+}
+
+.description {
+  color: var(--muted);
+  max-width: 450px;
+  font-size: 14px;
+  line-height: 1.9;
+  margin-bottom: 30px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.button {
+  padding: 13px 20px;
+  border-radius: 7px;
+  background: linear-gradient(110deg, #647dff, #9766e9);
+  font-size: 12px;
+  font-weight: 700;
+  transition: .3s;
+}
+
+.button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 25px #776bff77;
+}
+
+.secondary {
+  color: #ccc;
+  font-size: 13px;
+}
+
+.status {
+  margin-top: 40px;
+  color: #888;
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.status span {
+  color: #5ce1a8;
+}
+
+/* ORB ANIMATION */
+
+.orb-stage {
+  height: 430px;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+.orb {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 25%, #d0d5ff, #7887ff 20%, #704bc9 50%, #17133e 85%);
+  box-shadow:
+    inset -25px -25px 45px #0009,
+    0 0 80px #806bff55;
+  animation: float 5s ease-in-out infinite;
+  z-index: 2;
+}
+
+.orb::after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 40px;
+  border-radius: 50%;
+  background: #ffffff40;
+  filter: blur(20px);
+  transform: rotate(-35deg);
+  top: 95px;
+  left: 70px;
+}
+
+.orbit {
+  position: absolute;
+  width: 370px;
+  height: 130px;
+  border: 1px solid #8a8aff55;
+  border-radius: 50%;
+  transform: rotate(-30deg);
+}
+
+.orbit.two {
+  transform: rotate(50deg);
+  border-color: #5ce1e655;
+  width: 400px;
+  height: 170px;
+}
+
+.orbit.three {
+  width: 330px;
+  height: 330px;
+  border-color: #a66cff33;
+  transform: rotate(0);
+}
+
+.orb-label {
+  position: absolute;
+  color: #aaa;
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.label-top {
+  top: 45px;
+  right: 0;
+}
+
+.label-bottom {
+  bottom: 40px;
+  left: 0;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-18px);
+  }
+}
+
+/* SECTIONS */
+
+section.content {
+  padding: 100px 0 20px;
+}
+
+.kicker {
+  color: var(--cyan);
+  font-size: 10px;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+}
+
+.heading-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 25px;
+  margin-bottom: 35px;
+}
+
+h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(30px, 4vw, 45px);
+  letter-spacing: -2px;
+}
+
+.lead {
+  color: var(--muted);
+  max-width: 330px;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* ABOUT */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 15px;
+}
+
+.card {
+  background: linear-gradient(140deg, #1c1c32, #10101d);
+  border: 1px solid #ffffff18;
+  border-radius: 15px;
+  padding: 30px;
+  transition: .3s;
+}
+
+.card:hover {
+  border-color: #718cff88;
+  transform: translateY(-5px);
+}
+
+.about-main h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 26px;
+  margin: 20px 0;
+}
+
+.card p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 220px;
+}
+
+.stat strong {
+  font-size: 45px;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.stat span {
+  color: var(--cyan);
+}
+
+/* SKILLS */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.skill-number {
+  color: #888;
+  font-size: 11px;
+}
+
+.skill-icon {
+  font-size: 30px;
+  color: var(--cyan);
+  margin: 20px 0;
+}
+
+.skill-card h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  margin-bottom: 12px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 20px;
+}
+
+.tags span {
+  border: 1px solid #ffffff22;
+  border-radius: 5px;
+  padding: 5px 9px;
+  font-size: 9px;
+  color: #bbb;
+}
+
+/* PROJECTS */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.project {
+  overflow: hidden;
+  border: 1px solid #ffffff18;
+  border-radius: 15px;
+  background: #141426;
+  transition: .3s;
+}
+
+.project:hover {
+  transform: translateY(-5px);
+  border-color: #718cff88;
+}
+
+.project-art {
+  height: 200px;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle, #5546a855, #111122);
+}
+
+.calculator-art {
+  font-size: 55px;
+  font-family: 'Space Grotesk', sans-serif;
+  color: var(--cyan);
+  text-shadow: 0 0 25px #5ce1e6;
+}
+
+.orbit-art {
+  width: 120px;
+  height: 120px;
+  border: 2px solid #9775ff;
+  border-radius: 50%;
+  box-shadow: 0 0 50px #806bff88;
+}
+
+.code-art {
+  font-size: 60px;
+  color: var(--cyan);
+  font-family: monospace;
+}
+
+.project-info {
+  padding: 22px;
+}
+
+.project-info small {
+  color: var(--cyan);
+  letter-spacing: 2px;
+  font-size: 9px;
+}
+
+.project-info h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  margin: 8px 0;
+}
+
+.project-info p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+/* CONTACT */
+
+.contact {
+  margin: 100px 0;
+  padding: 50px;
+  border: 1px solid #ffffff20;
+  border-radius: 18px;
+  background: radial-gradient(circle at top left, #473b8355, transparent 60%), #151526;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.contact h2 {
+  font-size: 50px;
+  line-height: 1.1;
+  margin: 20px 0;
+}
+
+.contact p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact-links a {
+  padding: 18px 0;
+  border-bottom: 1px solid #ffffff20;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.contact-links span {
+  display: block;
+  font-size: 9px;
+  color: var(--cyan);
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+}
+
+/* FOOTER */
+
+footer {
+  border-top: 1px solid #ffffff20;
+  padding: 30px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  color: #888;
+  font-size: 11px;
+}
+
+/* SCROLL REVEAL */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* MOBILE */
+
+@media(max-width: 800px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding-top: 70px;
+  }
+
+  .orb-stage {
+    height: 350px;
+  }
+
+  .orb {
+    width: 210px;
+    height: 210px;
+  }
+
+  .orbit {
+    width: 300px;
+  }
+
+  .orbit.two {
+    width: 320px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .about-main {
+    grid-column: 1 / -1;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact {
+    grid-template-columns: 1fr;
+    padding: 30px;
+  }
+
+  .heading-row {
+    display: block;
+  }
+
+  .lead {
+    margin-top: 12px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 5%;
+    width: 90%;
+    background: #171729;
+    border: 1px solid #ffffff22;
+    border-radius: 10px;
+    padding: 15px;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  nav.open {
+    display: flex;
+  }
+}
+
+@media(max-width: 520px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .about-main {
+    grid-column: 1 / -1;
+  }
+
+  .contact h2 {
+    font-size: 40px;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media(prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="noise"></div>
+
+<header class="container">
+  <a href="#home" class="brand">
+    BRAZENLI<span>PORTFOLIO</span><b>.</b>
+  </a>
+
+  <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+
+  <nav id="navigation">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+<!-- HERO -->
+
+<section class="hero container" id="home">
+
+  <div class="hero-copy reveal">
+
+    <p class="eyebrow"><span>✦</span> WELCOME TO MY DIGITAL SPACE</p>
+
+    <h1>
+      Hi, I'm<br>
+      <span class="gradient">BRAZENLI L. BENOSA.</span><br>
+      Creative thinker<span class="gradient">.</span><br>
+      <span class="outline">Future builder.</span>
+    </h1>
+
+    <p class="description">
+      I’m a student and aspiring creator interested in technology,
+      design, and building things that make a difference.
+    </p>
+
+    <div class="actions">
+      <a href="#projects" class="button">Explore my work ↗</a>
+      <a href="#contact" class="secondary">Let's connect →</a>
+    </div>
+
+    <div class="status">
+      <span>●</span> OPEN TO LEARNING &amp; COLLABORATION
+    </div>
+
+  </div>
+
+  <div class="orb-stage">
+    <div class="orbit"></div>
+    <div class="orbit two"></div>
+    <div class="orbit three"></div>
+    <div class="orb"></div>
+    <span class="orb-label label-top">CREATIVITY / 001</span>
+    <span class="orb-label label-bottom">IDEAS IN MOTION</span>
+  </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="content container" id="about">
+
+  <p class="kicker">01 / INTRODUCTION</p>
+
+  <div class="heading-row">
+    <h2>A little <span class="gradient">about me.</span></h2>
+    <p class="lead">
+      Curious by nature. Always learning.
+      Interested in turning ideas into real projects.
+    </p>
+  </div>
+
+  <div class="about-grid">
+
+    <div class="card about-main reveal">
+      <small>WHO I AM</small>
+      <h3>Learning today.<br><span class="gradient">Building tomorrow.</span></h3>
+      <p>
+        I'm currently developing my skills in technology and creative
+        problem-solving. I enjoy exploring how websites work,
+        experimenting with new tools, and improving through hands-on projects.
+      </p>
+    </div>
+
+    <div class="card stat reveal">
+      <span>✳</span>
+      <strong>01</strong>
+      <p>Curiosity drives my process.</p>
+    </div>
+
+    <div class="card stat reveal">
+      <span>⌁</span>
+      <strong>∞</strong>
+      <p>Always room to improve.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- SKILLS -->
+
+<section class="content container" id="skills">
+
+  <p class="kicker">02 / WHAT I DO</p>
+
+  <div class="heading-row">
+    <h2>Skills &amp; <span class="gradient">interests.</span></h2>
+    <p class="lead">A growing toolkit of skills I’m learning and practicing.</p>
+  </div>
+
+  <div class="skills-grid">
+
+    <article class="card skill-card reveal">
+      <span class="skill-number">01</span>
+      <div class="skill-icon">⌘</div>
+      <h3>Web Development</h3>
+      <p>Building responsive pages with structure, style, and interactive features.</p>
+      <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+    </article>
+
+    <article class="card skill-card reveal">
+      <span class="skill-number">02</span>
+      <div class="skill-icon">✳</div>
+      <h3>Creative Design</h3>
+      <p>Exploring layouts, colors, typography, and clean visual experiences.</p>
+      <div class="tags"><span>UI Concepts</span><span>Design</span></div>
+    </article>
+
+    <article class="card skill-card reveal">
+      <span class="skill-number">03</span>
+      <div class="skill-icon">◈</div>
+      <h3>Problem Solving</h3>
+      <p>Breaking challenges into smaller steps and learning by experimenting.</p>
+      <div class="tags"><span>Research</span><span>Logic</span></div>
+    </article>
+
+  </div>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section class="content container" id="projects">
+
+  <p class="kicker">03 / SELECTED WORK</p>
+
+  <div class="heading-row">
+    <h2>Things I've <span class="gradient">built.</span></h2>
+    <p class="lead">A few spaces to showcase projects as you complete them.</p>
+  </div>
+
+  <div class="projects-grid">
+
+    <article class="project reveal">
+      <div class="project-art">
+        <div class="calculator-art">2,048 +</div>
+      </div>
+      <div class="project-info">
+        <small>WEB DEVELOPMENT</small>
+        <h3>Personal Calculator</h3>
+        <p>A browser-based calculator concept with a clean interface.</p>
+      </div>
+    </article>
+
+    <article class="project reveal">
+      <div class="project-art">
+        <div class="orbit-art"></div>
+      </div>
+      <div class="project-info">
+        <small>DESIGN EXPERIMENT</small>
+        <h3>Digital Visuals</h3>
+        <p>Exploring gradients, shapes, and futuristic interface styles.</p>
+      </div>
+    </article>
+
+    <article class="project reveal">
+      <div class="project-art">
+        <div class="code-art">&lt;/&gt;</div>
+      </div>
+      <div class="project-info">
+        <small>LEARNING PROJECT</small>
+        <h3>More Coming Soon</h3>
+        <p>This space is ready for your next project or school activity.</p>
+      </div>
+    </article>
+
+  </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="container" id="contact">
+
+  <div class="contact reveal">
+
+    <div>
+      <p class="kicker">04 / GET IN TOUCH</p>
+
+      <h2>
+        Let's make<br>
+        something <span class="gradient">great.</span>
+      </h2>
+
+      <p>
+        Have a question, project idea, or just want to connect?
+        Send me a message.
+      </p>
+    </div>
+
+    <div class="contact-links">
+
+      <!-- Replace sample contact details with your own. -->
+
+      <a href="mailto:you@example.com">
+        <span>EMAIL</span>
+        you@example.com ↗
+      </a>
+
+      <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
+        <span>GITHUB</span>
+        github.com/yourusername ↗
+      </a>
+
+      <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
+        <span>LINKEDIN</span>
+        Your profile ↗
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer class="container">
+  <a href="#home" class="brand">BRAZENLI<span>PORTFOLIO</span><b>.</b></a>
+  <p>Designed with curiosity. Built with code.</p>
+  <span>© <span id="year"></span> BRAZENLI L. BENOSA</span>
+</footer>
+
+<!-- JAVASCRIPT SCRIPT -->
+
+<script>
+"use strict";
+
+// AUTOMATIC FOOTER YEAR
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+
+// MOBILE NAVIGATION
+const menuButton = document.querySelector(".menu-toggle");
+const navigation = document.getElementById("navigation");
+
+menuButton.addEventListener("click", function() {
+
+  const opened = navigation.classList.toggle("open");
+
+  menuButton.setAttribute("aria-expanded", opened);
+
+  menuButton.textContent = opened ? "✕" : "☰";
+
+});
+
+
+// CLOSE MENU AFTER CLICKING A LINK
+document.querySelectorAll("#navigation a").forEach(function(link) {
+
+  link.addEventListener("click", function() {
+
+    navigation.classList.remove("open");
+
+    menuButton.setAttribute("aria-expanded", "false");
+
+    menuButton.textContent = "☰";
+
+  });
+
+});
+
+
+// SCROLL REVEAL ANIMATION
+const revealElements = document.querySelectorAll(".reveal");
+
+if ("IntersectionObserver" in window) {
+
+  const observer = new IntersectionObserver(function(entries, obs) {
+
+    entries.forEach(function(entry) {
+
+      if (entry.isIntersecting) {
+
+        entry.target.classList.add("show");
+
+        obs.unobserve(entry.target);
+
+      }
+
+    });
+
+  }, {
+    threshold: 0.12
+  });
+
+  revealElements.forEach(function(element) {
+    observer.observe(element);
+  });
+
+} else {
+
+  revealElements.forEach(function(element) {
+    element.classList.add("show");
+  });
+
+}
+
+
+// CLOSE MENU WHEN CLICKING OUTSIDE
+document.addEventListener("click", function(event) {
+
+  if (
+    !navigation.contains(event.target) &&
+    !menuButton.contains(event.target)
+  ) {
+
+    navigation.classList.remove("open");
+
+    menuButton.setAttribute("aria-expanded", "false");
+
+    menuButton.textContent = "☰";
+
+  }
+
+});
+
+</script>
+
+</body>
+</html>
